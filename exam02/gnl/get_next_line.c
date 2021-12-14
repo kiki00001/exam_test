@@ -12,23 +12,23 @@ int		ft_strlen(char *str)
 	return(i);
 }
 
-char	*ft_charappend(char *target, char value)
+char	*ft_charappend(char *line, char buff)
 {
-	int		idx;
+	int		i;
 	char	*ret;
 
-	idx = 0;
-	if (!(ret = malloc(ft_strlen(target) + 2)))
+	i = 0;
+	if (!(ret = malloc(ft_strlen(line) + 2)))
 		return (0);
-	while (target[idx] != 0)
+	while (line[i] != 0)
 	{
-		ret[idx] = target[idx];
-		idx++;
+		ret[i] = line[i];
+		i++;
 	}
-	ret[idx] = value;
-	idx++;
-	ret[idx] = 0;
-	free(target);
+	ret[i] = buff;
+	i++;
+	ret[i] = 0;
+	free(line);
 	return (ret);
 }
 
