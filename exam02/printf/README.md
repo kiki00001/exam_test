@@ -1,3 +1,4 @@
+```text
 Assignment name  : ft_printf
 Expected files   : ft_printf.c
 Allowed functions: malloc, free, write, va_start, va_arg, va_copy, va_end
@@ -26,3 +27,4 @@ out:Magic number is    42%
 
 call: ft_printf("Hexadecimal for %d is %x\n", 42, 42);
 out:Hexadecimal for 42 is 2a$
+```
