@@ -4,46 +4,47 @@
 
 int ft_strlen(char *str)
 {
-	int len=0;
+	int i=0;
 
-	while (*str && str[len])
-		len++;
-	return (len);
+	while (*str && str[i])
+		i++;
+	return (i);
 }
 
 char *itoa_base(long long num, int base)
 {
-	int len=1;
-	char *res;
+	int i = 1;
+	char *ret;
 	int minus = 0;
 
 	if (num == 0)
 		return ("0");
 	if (num < 0)
 	{
-		len++;
+		i++;
 		minus = -1;
 		num *= -1;
 	}
-	long long tempN = num;
-	while (0 < (tempN /= base))
-		len++;
-	res = malloc(len + 1);
-	res[len] = 0;
-	while (0 <= --len)
+	long long temp = num;
+	while ((temp /= base) > 0)
+		i++;
+	ret = malloc(i + 1);
+	ret[i] = 0;
+	//while (0 <= --i)
+	while(--i >= 0)
 	{
-		if (len == 0 && minus == -1)
+		if (i == 0 && minus == -1)
 		{
-			res[len] = '-';
+			ret[i] = '-';
 			break;
 		}
 		if (num % base < 10)
-			res[len] = num % base + '0';
+			ret[i] = num % base + '0';
 		else
-			res[len] = (num % base - 10) + 'a';
+			ret[i] = (num % base - 10) + 'a';
 		num /= base;
 	}
-	return (res);
+	return (ret);
 }
 
 int ft_printf(const char *input, ...)
