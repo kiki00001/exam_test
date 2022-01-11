@@ -51,7 +51,7 @@ int ft_printf(const char *input, ...)
 {
 	va_list	ap;
 	va_start(ap, input);
-	char* res;
+	char* ret;
 
 	while (*input)
 	{
@@ -61,12 +61,12 @@ int ft_printf(const char *input, ...)
 			if (*input == 's')
 				write(1, input, 1);
 			else if (*input == 'd')
-				res = itoa_base((long long)va_arg(ap, int), 10);
+				ret = itoa_base((long long)va_arg(ap, int), 10);
 			else if (*input == 'x')
-				res = itoa_base((long long)va_arg(ap, unsigned int), 16);
-			write(1, res, ft_strlen(res));
+				ret = itoa_base((long long)va_arg(ap, unsigned int), 16);
+			write(1, ret, ft_strlen(ret));
 			if (*input != 's')
-				free(res);
+				free(ret);
 		}
 		else
 			write(1, input, 1);
