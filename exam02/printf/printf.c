@@ -65,10 +65,10 @@ int ft_printf(char *format, ...)
                     s = "";
                 if (dot == 0)
                     pre = ft_strlen(s);
-                for (int idx = 0 ; idx < wid - min(ft_strlen(s), pre) ; idx++)
+                for (int j = 0 ; j < wid - min(ft_strlen(s), pre) ; j++)
                     print_size += write(1, " ", 1);
-                for (int idx = 0 ; idx < min(ft_strlen(s), pre) ; idx++)
-                    print_size += write(1, &s[idx], 1);
+                for (int j = 0 ; j < min(ft_strlen(s), pre) ; j++)
+                    print_size += write(1, &s[j], 1);
             }
             else if(format[i] == 'd')
             {
@@ -80,10 +80,10 @@ int ft_printf(char *format, ...)
                 }
                 if (num == 0 && dot == 1 && pre == 0)
                     ++wid;
-                for (int idx = 0 ; idx < wid - sign - max(pre, numlen(num, 10)) ; idx++)
+                for (int j = 0 ; j < wid - sign - max(pre, numlen(num, 10)) ; j++)
                     print_size += write(1, " ", 1);
                 print_size += write(1, "-", sign);
-                for (int idx = 0 ; idx < pre - numlen(num, 10) ; idx++)
+                for (int j = 0 ; j < pre - numlen(num, 10) ; j++)
                     print_size += write(1, "0", 1);
                 if (num != 0 || dot != 1 || pre != 0)
                     ft_putnbr(num, 10, BASE);
@@ -93,9 +93,9 @@ int ft_printf(char *format, ...)
                 long long num = va_arg(ap, unsigned int);
                 if (num == 0 && dot == 1 && pre == 0)
                     ++wid;
-                for (int idx = 0 ; idx < wid - max(pre, numlen(num, 16)) ; idx++)
+                for (int j = 0 ; j < wid - max(pre, numlen(num, 16)) ; j++)
                     print_size += write(1, " ", 1);
-                for (int idx = 0 ; idx < pre - numlen(num, 16) ; idx++)
+                for (int j = 0 ; j < pre - numlen(num, 16) ; j++)
                     print_size += write(1, "0", 1);
                 if (num != 0 || dot != 1 || pre != 0)
                     ft_putnbr(num, 16, BASEX);
@@ -108,4 +108,16 @@ int ft_printf(char *format, ...)
         ++i;
     }
     return (print_size);
+}
+
+
+int main(void)
+{
+	ft_printf("%10.2s\n", "toto");
+	ft_printf("Magic %s is %5d", "number", 42);
+	ft_printf("Hexadecimal for %d is %x\n", 42, 42);
+	ft_printf("%d\n", -4200);
+
+	return(0);
+
 }
