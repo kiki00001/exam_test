@@ -1,5 +1,5 @@
 #include "get_next_line.h"
-// #include <stdio.h>
+ #include <stdio.h>
 
 int		ft_strlen(char *str)
 {
@@ -53,7 +53,10 @@ int		get_next_line(char **line)
 	else
 		return (0);
 }
-/*
+
+
+
+
 int main(void)
 {
 	int		r;
@@ -70,4 +73,3 @@ int main(void)
 	free(line);
 	line = NULL;
 }
-*/

@@ -74,3 +74,14 @@ int ft_printf(const char *input, ...)
 	}
 	return (0);
 }
+
+int main(void)
+{
+	//ft_printf("%10.2s\n", "toto");
+	//ft_printf("Magic %s is %5d\n", "number", 42);
+	ft_printf("Hexadecimal for %d is %x\n", 42, 42);
+	ft_printf("%d\n", -4200);
+
+	return(0);
+
+}

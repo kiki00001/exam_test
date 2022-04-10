@@ -6,14 +6,18 @@ int main(int argc, char *argv[])
     int j;
 	int temp;
 
-	if (argc == 3){
-		while(argv[1][i]){
+	if (argc == 3)
+	{
+		while(argv[1][i])
+		{
 			j = 0;
-			while(argv[2][j]){
+			while(argv[2][j])
+			{
 				if (argv[1][i] == argv[2][j])
 				{
 					temp = i;
-					while(argv[1][--temp] && temp >= 0){
+					while(argv[1][--temp] && temp >= 0)
+					{
 						if (argv[1][temp] == argv[1][i])
 							break;
 					}
